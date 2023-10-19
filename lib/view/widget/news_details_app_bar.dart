@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:payment/models/news_item.dart';
 import 'package:payment/view/widget/app_bar_icon.dart';
 
-class NewsDetailsAppBar extends StatelessWidget {
+class NewsDetailsAppBar extends StatefulWidget {
   NewsItem newsItem;
   NewsDetailsAppBar({super.key, required this.newsItem});
 
   @override
+  State<NewsDetailsAppBar> createState() => _NewsDetailsAppBarState();
+}
+
+class _NewsDetailsAppBarState extends State<NewsDetailsAppBar> {
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SliverAppBar(
+      backgroundColor: Colors.white,
+      elevation: 0,
       leading: Padding(
         padding: const EdgeInsets.only(left: 8.0),
-        child: CustomAppBarIcon(icon: Icons.chevron_left, iconSize: 30),
+
+        child: CustomAppBarIcon(icon: Icons.chevron_left, iconSize: 30,onTap: () => Navigator.of(context).pop(),),
       ),
       // leadingWidth: 40,
       actions: [
@@ -32,7 +41,7 @@ class NewsDetailsAppBar extends StatelessWidget {
             Positioned.fill(
               child: Image(
                 image: NetworkImage(
-                  newsItem.imgUrl,
+                  widget.newsItem.imgUrl,
                 ),
                 fit: BoxFit.cover,
               ),
@@ -46,7 +55,7 @@ class NewsDetailsAppBar extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 16,
+              bottom: 50,
               left: 16,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +67,7 @@ class NewsDetailsAppBar extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Text(
-                      newsItem.category,
+                      widget.newsItem.category,
                       style: const TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
@@ -67,7 +76,7 @@ class NewsDetailsAppBar extends StatelessWidget {
                   SizedBox(
                     width: size.width * 0.9,
                     child: Text(
-                      '${newsItem.title} ',
+                      '${widget.newsItem.title} ',
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       
@@ -84,7 +93,7 @@ class NewsDetailsAppBar extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        newsItem.author,
+                        widget.newsItem.author,
                         style: const TextStyle(color: Colors.white),
                       ),
                       Icon(
@@ -95,7 +104,7 @@ class NewsDetailsAppBar extends StatelessWidget {
                         width: 8,
                       ),
                       Text(
-                        newsItem.time,
+                        widget.newsItem.time,
                         style: const TextStyle(color: Colors.white),
                       ),
                     ],
@@ -106,12 +115,23 @@ class NewsDetailsAppBar extends StatelessWidget {
           ],
         ),
       ),
+      pinned: true,
+      collapsedHeight: size.height * 0.1,
       bottom: PreferredSize(
-        preferredSize: Size.zero,
-        child: Container(
-          height: size.height * 0.09,
-          decoration: BoxDecoration(borderRadius: BorderRadius.vertical(top: Radius.circular(16))),
-        ),),
+        preferredSize: Size.fromHeight(0),
+        child:  SizedBox(
+              height: 40,
+width: double.infinity,
+          child: DecoratedBox(
+
+              
+              decoration: const BoxDecoration(borderRadius: BorderRadius.vertical(top: Radius.circular(36),),
+                color: Colors.white
+              ),
+            ),
+        ),
+        
+        ),
     );
   }
 }

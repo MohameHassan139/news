@@ -47,6 +47,7 @@ class _CustomCarousleSliderState extends State<CustomCarousleSlider> {
                       left: 0.0,
                       right: 0.0,
                       child: Column(
+                        
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
@@ -66,6 +67,7 @@ class _CustomCarousleSliderState extends State<CustomCarousleSlider> {
                             ),
                           ),
                           Container(
+                            width: double.infinity,
                             decoration: const BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [

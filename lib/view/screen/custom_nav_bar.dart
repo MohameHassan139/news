@@ -20,10 +20,11 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
     super.initState();
     _controller = PersistentTabController(initialIndex: 0);
     _hideNavBar = false;
+    
   }
   List<Widget> _buildScreens() {
     return [
-      HomeScreen(),
+      const HomeScreen(),
       Container(),
       Container(),
       Container(),
@@ -41,14 +42,14 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.home),
+        icon: const Icon(Icons.home),
         title: "Home",
         activeColorSecondary: Colors.white,
         activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.search),
+        icon: const Icon(Icons.search),
         title: ("Search"),
         activeColorSecondary: Colors.white,
 
@@ -56,14 +57,14 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.add),
+        icon: const Icon(Icons.add),
         title: ("Add"),
         activeColorSecondary: Colors.white,
         activeColorPrimary: Colors.deepOrange,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.settings),
+        icon: const Icon(Icons.settings),
         title: ("Settings"),
         activeColorSecondary: Colors.white,
         activeColorPrimary: Colors.indigo,
@@ -102,7 +103,7 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
                   ],
         elevation: 0,
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       drawer: const Drawer(
         child: Center(
@@ -115,18 +116,19 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
         ),
       ),
       body: PersistentTabView(
+        
         context,
         controller: _controller,
         screens: _buildScreens(),
         items: _navBarsItems(),
         confineInSafeArea: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.lightGreen,
         handleAndroidBackButtonPress: true,
         resizeToAvoidBottomInset: true,
         stateManagement: true,
         navBarHeight: kBottomNavigationBarHeight,
         hideNavigationBarWhenKeyboardShows: true,
-        margin: EdgeInsets.all(0.0),
+        margin: const EdgeInsets.all(0.0),
         popActionScreens: PopActionScreensType.all,
         bottomScreenMargin: 0.0,
         onWillPop: (context) async {
@@ -138,7 +140,7 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
               width: 50.0,
               color: Colors.white,
               child: ElevatedButton(
-                child: Text("Close"),
+                child: const Text("Close"),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -152,11 +154,11 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
             colorBehindNavBar: Colors.indigo,
             borderRadius: BorderRadius.circular(20.0)),
         popAllScreensOnTapOfSelectedTab: true,
-        itemAnimationProperties: ItemAnimationProperties(
+        itemAnimationProperties: const ItemAnimationProperties(
           duration: Duration(milliseconds: 400),
           curve: Curves.ease,
         ),
-        screenTransitionAnimation: ScreenTransitionAnimation(
+        screenTransitionAnimation: const ScreenTransitionAnimation(
           animateTabTransition: true,
           curve: Curves.ease,
           duration: Duration(milliseconds: 200),
