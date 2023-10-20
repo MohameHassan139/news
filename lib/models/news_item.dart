@@ -32,6 +32,7 @@ class NewsItem {
       imgUrl: imgUrl ?? this.imgUrl,
       category: category ?? this.category,
       author: author ?? this.author,
+      isFovarite: isFovarite ?? this.isFovarite,
     );
   }
 }
@@ -43,6 +44,7 @@ List<NewsItem> news = [
     id: 1,
     imgUrl: imgList[0],
     title: 'fake news by me',
+    
   ),
   NewsItem(
     author: 'mohamed hassa',

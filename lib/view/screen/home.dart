@@ -19,31 +19,44 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Column(
             children: [
-            
-            
-              const SizedBox(height: 16,),
+              const SizedBox(
+                height: 16,
+              ),
               // titel
-             CustomTitle(title: 'Breaking News',),
-              
+              CustomTitle(
+                title: 'Breaking News',
+              ),
+
               const SizedBox(
                 height: 8,
               ),
-            CustomCarousleSlider(news: news ,),
-             const SizedBox(
+              CustomCarousleSlider(
+                news: news,
+              ),
+              const SizedBox(
                 height: 16,
               ),
-             CustomTitle(title: 'Recommendation',),
-             const SizedBox(
+              CustomTitle(
+                title: 'Recommendation',
+              ),
+              const SizedBox(
                 height: 8,
               ),
-              ...news.map((newsItem) => Padding(
-                padding: const EdgeInsets.only(bottom: 12),
-                child: RocommmendedItem(
-                      item: newsItem,
-                    ),
-              ) ).toList(),
-            
-            SizedBox(height: 50,)
+              ...news.map((newsItem) {
+                final int index = news.indexOf(newsItem);
+              print('>>>>>>>> $index <<<<<<<<');
+
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: RocommmendedItem(
+                    index: index,
+                  ),
+                );
+              }).toList(),
+
+              SizedBox(
+                height: 50,
+              )
             ],
           ),
         )),
@@ -51,8 +64,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
 
 final List<String> imgList = [
   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',

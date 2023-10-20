@@ -5,12 +5,14 @@ import '../widget/news_details_app_bar.dart';
 import '../widget/news_details_body.dart';
 
 class NewsDetailsScreen extends StatelessWidget {
-  final NewsItem newsItem;
-  const NewsDetailsScreen({super.key, required this.newsItem});
+  final int index;
+
+   NewsDetailsScreen({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    
     return Scaffold(
                 backgroundColor:   Colors.white,
      
@@ -18,13 +20,11 @@ class NewsDetailsScreen extends StatelessWidget {
         children: [
           Positioned.fill(child: 
           CustomScrollView(slivers: [
-            NewsDetailsAppBar(newsItem: newsItem),
+            NewsDetailsAppBar(index: index),
             SliverToBoxAdapter(
-              child: NewsDdtailsBody(newsItem: newsItem),
+              child: NewsDdtailsBody(index: index),
             ),
-            // SliverPadding(
-            //   padding: EdgeInsets.only(bottom: 800),
-            // ),
+            
           ]),),
           Positioned(
             bottom: 0,

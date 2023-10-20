@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payment/view/screen/book_mark.dart';
 import 'package:payment/view/screen/home.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
@@ -25,9 +26,9 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
   List<Widget> _buildScreens() {
     return [
       const HomeScreen(),
+      BookMark(),
       Container(),
-      Container(),
-      Container(),
+    
       // MainScreen(
       //   hideStatus: _hideNavBar,
       //   onScreenHideButtonPressed: () {
@@ -49,23 +50,17 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.search),
-        title: ("Search"),
+        icon: const Icon(Icons.bookmark_border_outlined),
+        title: ("fovarite"),
         activeColorSecondary: Colors.white,
 
         activeColorPrimary: Colors.teal,
         inactiveColorPrimary: Colors.grey,
       ),
+      
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.add),
-        title: ("Add"),
-        activeColorSecondary: Colors.white,
-        activeColorPrimary: Colors.deepOrange,
-        inactiveColorPrimary: Colors.grey,
-      ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(Icons.settings),
-        title: ("Settings"),
+        icon: const Icon(Icons.person_outline_outlined),
+        title: ("profile"),
         activeColorSecondary: Colors.white,
         activeColorPrimary: Colors.indigo,
         inactiveColorPrimary: Colors.grey,
@@ -125,7 +120,7 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
         backgroundColor: Colors.lightGreen,
         handleAndroidBackButtonPress: true,
         resizeToAvoidBottomInset: true,
-        stateManagement: true,
+        stateManagement: false,
         navBarHeight: kBottomNavigationBarHeight,
         hideNavigationBarWhenKeyboardShows: true,
         margin: const EdgeInsets.all(0.0),

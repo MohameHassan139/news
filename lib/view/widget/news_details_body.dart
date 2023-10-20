@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../models/news_item.dart';
 
 class NewsDdtailsBody extends StatelessWidget {
-  final NewsItem newsItem;
-  const NewsDdtailsBody({super.key, required this.newsItem});
+  final int index;
+  const NewsDdtailsBody({super.key, required this.index});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,13 +14,13 @@ class NewsDdtailsBody extends StatelessWidget {
           Row(
             children: [
               CircleAvatar(
-                backgroundImage: NetworkImage(newsItem.imgUrl),
+                backgroundImage: NetworkImage(news[index].imgUrl),
               ),
               SizedBox(
                 width: 8,
               ),
               Text(
-                newsItem.author,
+                news[index].author,
                 style: Theme.of(context).textTheme.titleMedium,
               )
             ],

@@ -20,7 +20,7 @@ class _CustomCarousleSliderState extends State<CustomCarousleSlider> {
   Widget build(BuildContext context) {
     final List<Widget> imageSliders = news
         .map((item) => InkWell(
-          onTap: () => Navigator.of(context,rootNavigator: true).push(CupertinoPageRoute(builder: (_)=>NewsDetailsScreen(newsItem:item))) ,
+          onTap: () => Navigator.of(context,rootNavigator: true).push(CupertinoPageRoute(builder: (_)=>NewsDetailsScreen(index:news.indexOf(item)))) ,
           child: Container(
             
             margin: const EdgeInsets.all(5.0),
